@@ -30,7 +30,9 @@ STORECONF_DIR=/home/sound/rec24/store.d
 # input type, corresponds to file in src/input/
 INPUT_TYPE=jack
 
-# audio device, for ALSA
+# audio device, for ALSA.
+# You may use asoundrc if you have multi-channel card and want to capture only certain channels,
+# see asoundrc.example for details
 #AUDIO_DEV=plughw:0
 
 # input ports, for JACK

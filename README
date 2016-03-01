@@ -1,9 +1,10 @@
 rec24 - continuous, gapless audio recorder
 
-Highlights:
+Features:
  * records from soundcard or other audio application, using ALSA or JACK
  * writes to unlimited (actually, limited by CPU and RAM) number of formats concurrently
  * starts new file every given time, for example 1 hour
+ * compensates for clock drift between soundcard clock and real-time clock
  * automatically sets priorities to avoid dropouts even if you're compiling something on the same machine ;)
  * modular architecture, allows you to specify custom recording method and storage formats
 
