@@ -1,0 +1,40 @@
+#!/bin/bash
+
+set -a
+
+command="$1"
+shift
+
+if [ $# -gt 0 ]; then
+	[ -e "$1" ] || exit 1 $(echo "Config not found!" >&2)
+	confpath="$1"
+	. "$confpath"
+	export srcbase="$(readlink -f "$(dirname $0)")/src"
+else
+	command="help"
+fi
+
+shift
+
+. "$srcbase/common.sh"
+
+case "$command" in
+	"record") $srcbase/record.sh $@ ;;
+	"clean_old") $srcbase/clean_old.sh $@ ;;
+	"clean_old_nodb") $srcbase/clean_old_nodb.sh $@ ;;
+	"sync_deleted") $srcbase/sync_deleted.sh $@ ;;
+	"rsck") $srcbase/rsck.sh $@ ;;
+	"moo") echo " ________________________
+< flac rocks, mp3 sucks! >
+ ------------------------
+        \\   ^__^
+         \\  (oo)\\_______
+            (__)\\       )\\/\\
+                ||----w |
+                ||     ||	" ;;
+	"help") echo "rec24
+USAGE:
+	$0 record <CONFIG_FILE>
+	$0 clean_old <CONFIG_FILE>" ;;
+	*) echo "Unknown command"; exit 1
+esac

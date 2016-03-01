@@ -1,0 +1,17 @@
+# name of storage, corresponds to `name` column in `formats` table in SQL
+STORE_NAME=ogg8
+
+# type of storage, corresponds to file in src/store/
+STORE_TYPE=vorbis
+
+# base directory
+STORE_BASEDIR=${STORAGE_DIR}/OGG8
+
+# vorbis quality
+STORE_QUALITY=8
+
+# suffix inserted before extension (for example .q8.ogg)
+STORE_FN_SUFFIX=.q8
+
+# autodelete files when they're too old. Value in seconds
+STORE_MAX_AGE=$[86400*60]

@@ -1,0 +1,14 @@
+# name of storage, corresponds to `name` column in `formats` table in SQL
+STORE_NAME=flac
+
+# type of storage, corresponds to file in src/store/
+STORE_TYPE=flac
+
+# base directory
+STORE_BASEDIR=${STORAGE_DIR}/FLAC
+
+# autodelete files when they're too old. Value in seconds
+STORE_MAX_AGE=$[86400*2]
+
+# suffix inserted before extension (for example .lossless.flac)
+#STORE_FN_SUFFIX=.lossless

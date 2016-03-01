@@ -1,0 +1,25 @@
+# customize this and move to ~/.asoundrc if you want ALSA remapping
+
+pcm.recorderplug {
+	type plug
+	slave.pcm "recorder"
+}
+
+pcm.recorder {
+	type dsnoop
+	ipc_key 4000
+	ipc_key_add_uid true
+	slave {
+		# set audio device here!!!
+		pcm "hw:0"
+		channels 4
+		period_size 8192
+		buffer_size 16384
+	}
+	#channels 2
+	bindings {
+		# set channel mapping here!!!
+		0 2
+		1 3
+	}
+}

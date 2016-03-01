@@ -1,0 +1,53 @@
+# Configuration
+
+# origin name, must be same as content of `name` field in `origins` SQL table
+ORIGIN_NAME="default"
+
+# audio sample rate
+SAMPLERATE=44100
+
+# basedir for storage
+STORAGE_DIR=/home/recordings
+
+# how often split parts?
+PART_LENGTH=3600
+
+# minimum length of part, if part is too short, it will be concatenated with next part
+PART_MIN_LENGTH=60
+
+# start offset, for example if you defined PART_LENGTH=3600 and PART_START_OFFSET=5, parts will start 5 seconds after top of hour
+PART_START_OFFSET=5
+
+# number of audio channels to record
+AUDIO_CHANNELS=2
+
+# number of bits per sample to record
+AUDIO_BITDEPTH=16
+
+# directory containing storage definitions
+STORECONF_DIR=/home/sound/rec24/store.d
+
+# input type, corresponds to file in src/input/
+INPUT_TYPE=jack
+
+# audio device, for ALSA
+#AUDIO_DEV=plughw:0
+
+# input ports, for JACK
+INPUT_PORTS="system:capture_1 system:capture_2"
+
+# log file
+LOGFILE="./spy.log"
+
+# delete old files in main thread. Disable if you have cron job for this.
+CLEAN_FROM_MAIN=1
+
+# must be 1
+DB_ENABLED=1
+
+# path to my.cnf
+DB_CONFIG=/home/sound/rec24/my.cnf
+
+# check database and files consistency on rec24 start, should be 1
+RSCK_ON_START=1
+

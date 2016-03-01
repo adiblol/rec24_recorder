@@ -1,0 +1,32 @@
+rec24 - continuous, gapless audio recorder
+
+Highlights:
+ * records from soundcard or other audio application, using ALSA or JACK
+ * writes to unlimited (actually, limited by CPU and RAM) number of formats concurrently
+ * starts new file every given time, for example 1 hour
+ * automatically sets priorities to avoid dropouts even if you're compiling something on the same machine ;)
+ * modular architecture, allows you to specify custom recording method and storage formats
+
+Requirements:
+ * Bash
+ * MySQL database for index (it is used by rec24_player)
+ * mysql command line client
+ * sox when using ALSA, or jack_capture when using JACK
+ * mbuffer
+ * nice, ionice, chrt
+ * flac and metaflac for FLAC, oggenc and oggtag for Ogg/Vorbis
+ * recommended: system tuned for realtime audio! lowlatency/realtime kernel, disabled swap etc...
+ * at least basic experience in Linux audio. Maybe some day there will be tutorial for newbies...
+
+Installation:
+ * Create database (schema is in file initial_schema.sql) and database user.
+ * Import initial_data.sql, it contains example data
+ * mv store.d.example store.d
+ * Customize files in store.d to change formats
+ * mv config.sh.example config.sh
+ * Customize config.sh
+ * mv my.cnf.example my.cnf
+ * Change database name, user and password in my.cnf
+ * ./rec24 record config.sh
+
+Happy hacking!
