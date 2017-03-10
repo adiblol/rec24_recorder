@@ -19,7 +19,7 @@ shift
 . "$srcbase/common.sh"
 
 case "$command" in
-	"record") $srcbase/record.sh $@ ;;
+	"record") $srcbase/record.sh $@ >"$LOGFILE_VERBOSE" 2>"$LOGFILE_VERBOSE" ;;
 	"clean_old") $srcbase/clean_old.sh $@ ;;
 	"clean_old_nodb") $srcbase/clean_old_nodb.sh $@ ;;
 	"sync_deleted") $srcbase/sync_deleted.sh $@ ;;
@@ -35,6 +35,7 @@ case "$command" in
 	"help") echo "rec24
 USAGE:
 	$0 record <CONFIG_FILE>
-	$0 clean_old <CONFIG_FILE>" ;;
+	$0 clean_old <CONFIG_FILE>
+	$0 help" ;;
 	*) echo "Unknown command"; exit 1
 esac

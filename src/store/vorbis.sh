@@ -13,6 +13,7 @@ store_vorbis_encode() {
 --raw-rate=$SAMPLERATE
 --raw-endianness=0
 --skeleton
+--quiet
 -q
 $STORE_QUALITY
 -o

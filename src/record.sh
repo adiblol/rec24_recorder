@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -a
+#set -o xtrace # uncomment for extended debugging
 
 if [ $RSCK_ON_START -eq 1 ]; then
 	${srcbase}/rsck.sh
@@ -31,6 +32,7 @@ recend() {
 	rm "${TMPDIR}/dowork" || true
 	sleep 0.1
 	kill -SIGINT $(cat ${TMPDIR}/capture.pid) 2>/dev/null || true
+	kill -SIGTERM $(cat ${TMPDIR}/capture.pid) 2>/dev/null || true
 	#echolog "Waiting for capture process to end..."
 	#wait $(cat ${TMPDIR}/capture.pid)
 	#pkill --parent $(cat ${TMPDIR}/catpipe.pid) 2>/dev/null || true
@@ -63,6 +65,7 @@ duration_snd=3600
 echolog ''
 echolog "`date '+%Y-%m-%d %H:%M:%S %z'`: Recorder starting with temporary directory $TMPDIR"
 echolog "`uname -a`"
+echolog "`id`"
 
 do_rt_capture() {
 	$c_rt $@
