@@ -41,6 +41,9 @@ INPUT_PORTS="system:capture_1 system:capture_2"
 # log file
 LOGFILE="./spy.log"
 
+# verbose log file, can be /dev/null or /dev/stdout
+LOGFILE_VERBOSE="./spy.verbose.log"
+
 # delete old files in main thread. Disable if you have cron job for this.
 CLEAN_FROM_MAIN=1
 
